@@ -1,7 +1,11 @@
-<!doctype html>
-<html>
-   <body>
-      <table border = 1>
+{% extends "base.html" %}
+
+
+
+{% block title %}Overview{% endblock %}
+
+{% block content %}
+      <table border = 1 class="table table-dark">
          <thead>
             <td>ID</td>
             <td>Front</td>
@@ -11,7 +15,7 @@
          {% for row in rows %}
             <tr>
                <form action = "\list" method = "POST">
-               <td><input type = "submit" value = "X" />{{ row["id"]}}</td>
+               <td><input type = "submit" value = "X" class="btn btn-danger"/>  {{ row["id"]}}</td>
                <td>  <textarea name="front">{{row["vokabel"]}}</textarea></td>
                <td> {{ row["solution"]}}</td>
             </form>
@@ -19,6 +23,4 @@
          {% endfor %}
       </table>
       {{msg}}
-      <a href = "/">Go back to home page</a>
-   </body>
-</html>
+{% endblock %}

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<head>
-    <title>Home</title>
-</head>
 
-<body>
+
+{% block title %}Add Card{% endblock %}
+
+{% block content %}
     <h1>Make a new flash card</h1>
     {{msg}}
     <form action = "\new" method = "POST">
@@ -18,5 +18,4 @@
      </form>
     <a href="/session"><button >Go Back to Flash Cards</button></a>
     <a href="/list"><button >Show all Flash Cards</button></a>
-
-</body>
+{% endblock %}

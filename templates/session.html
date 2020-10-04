@@ -1,29 +1,40 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<head>
-    <title>Home</title>
-</head>
 
-<body>
-    <h1>Study-session</h1>
 
-    <a href="/new"><button >+</button></a>
+{% block title %}Session{% endblock %}
 
-    <a onclick="change()" >
-        <div style="border-style: solid; width:30%" >
-            <input  type="button"  id="test" value="{{vokabel}}">
+
+
+
+{% block content %}
+
+
+    <div style="padding:10px; width:30%; margin: auto; ">
+        <a href="/new"><button>+</button></a>
+        <div style="border-style: solid; width:100%; height:100%; ">
+            <a onclick="change()">
+            <div style="margin: auto;">
+                <p></p>
+                <input type="button" id="test" value="{{vokabel}}" style=" width:100%; margin: auto;">
+                <p></p>
+            </div>
+        </a>
         </div>
-    </a>
-    <a href="/session"><button >Next</button></a>
-
-</body>
+        <a href="/session"><button>Next</button></a>
+    </div>
 
 
+
+
+{% endblock %}
+
+{% block script %}
 <script>
-    function change()
-{
-    var elem = document.getElementById("test");
-    if (elem.value=="{{solution}}") elem.value = "{{vokabel}}";
-    else elem.value = "{{solution}}";
-}
+    function change() {
+        var elem = document.getElementById("test");
+        if (elem.value == "{{solution}}") elem.value = "{{vokabel}}";
+        else elem.value = "{{solution}}";
+    }
 </script>
+{% endblock %}
