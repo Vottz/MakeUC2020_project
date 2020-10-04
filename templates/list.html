@@ -16,7 +16,7 @@
             <tr>
                <form action = "\list" method = "POST">
                <td><input type = "submit" value = "X" class="btn btn-danger"/>  {{ row["id"]}}</td>
-               <td>  <textarea disabled name="front">{{row["vokabel"]}}</textarea></td>
+               <td>  <textarea name="front">{{row["vokabel"]}}</textarea></td>
                <td> {{ row["solution"]}}</td>
             </form>
             </tr>

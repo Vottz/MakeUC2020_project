@@ -18,8 +18,8 @@ def register():
 def sessions():
     vocabs = getAllVocabs()
     if len(vocabs) == 0:
-        return render_template("session.html", vokabel="!EMPTY!", solution = "solution") 
-    vocab_id = rand.randrange(len(vocabs))
+        return render_template("session.html", vokabel="!EMPTY!", solution = "!EMPTY!") 
+    vocab_id = rand.randrange(0,len(vocabs))
     vokabel = vocabs[vocab_id][1] 
     solution =  vocabs[vocab_id][2] 
     return render_template("session.html", vokabel=vokabel, solution = solution) 
