@@ -10,13 +10,15 @@
          
          {% for row in rows %}
             <tr>
-               <td><button>X</button>{{row["id"]}}</td>
-               <td>{{row["vokabel"]}}</td>
+               <form action = "\list" method = "POST">
+               <td><input type = "submit" value = "X" />{{ row["id"]}}</td>
+               <td>  <textarea name="front">{{row["vokabel"]}}</textarea></td>
                <td> {{ row["solution"]}}</td>
+            </form>
             </tr>
          {% endfor %}
       </table>
-      
+      {{msg}}
       <a href = "/">Go back to home page</a>
    </body>
 </html>

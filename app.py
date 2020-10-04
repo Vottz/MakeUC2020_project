@@ -52,9 +52,10 @@ def new():
             return render_template("new.html",msg = msg)
     return render_template("new.html",msg = "")
 
-@app.route('/list')
+@app.route('/list', methods = ['POST', 'GET'])
 def list():
     rows = getAllVocabs()
-    return render_template("list.html",rows = rows)
+    msg = ""
+    return render_template("list.html",rows = rows, msg = msg)
 if __name__ == "__main__":
-    app.run()
+    app.run()   
