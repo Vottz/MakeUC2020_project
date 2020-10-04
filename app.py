@@ -17,6 +17,8 @@ def register():
 @app.route('/session')
 def sessions():
     vocabs = getAllVocabs()
+    if len(vocabs) == 0:
+        return render_template("session.html", vokabel="!EMPTY!", solution = "solution") 
     vocab_id = rand.randrange(len(vocabs)-1)
     vokabel = vocabs[vocab_id][1] 
     solution =  vocabs[vocab_id][2] 
@@ -56,6 +58,10 @@ def new():
 def list():
     rows = getAllVocabs()
     msg = ""
+    if request.method == 'POST':
+        front = request.form['front']
+        deleteRow(front)
+    rows = getAllVocabs()
     return render_template("list.html",rows = rows, msg = msg)
 if __name__ == "__main__":
     app.run()   

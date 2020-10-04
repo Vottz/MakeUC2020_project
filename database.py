@@ -19,14 +19,8 @@ def getAllVocabs():
 
 
 def deleteRow(name):
-    try:
-        with sql.connect("vokabeln.db") as con:
-            msg = "gogo"
-            cur = con.cursor()
-            cur.execute("DELETE FROM vokabeln WHERE vokabel == VALUES ?", (name))
-            con.commit()
-            msg = "Record successfully deleted"
-    except:
-        pass
-    finally:
-        pass
+    con = sql.connect("vokabeln.db")
+    cur = con.cursor()
+    con.execute("DELETE FROM vokabeln WHERE vokabel = (?)", (name,))
+    con.commit()
+    pass
