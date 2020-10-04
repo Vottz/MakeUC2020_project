@@ -19,7 +19,7 @@ def sessions():
     vocabs = getAllVocabs()
     if len(vocabs) == 0:
         return render_template("session.html", vokabel="!EMPTY!", solution = "solution") 
-    vocab_id = rand.randrange(len(vocabs)-1)
+    vocab_id = rand.randrange(len(vocabs))
     vokabel = vocabs[vocab_id][1] 
     solution =  vocabs[vocab_id][2] 
     return render_template("session.html", vokabel=vokabel, solution = solution) 
