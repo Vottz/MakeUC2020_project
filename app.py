@@ -1,5 +1,7 @@
 from flask import *
 import sqlite3 as sql
+from database import *
+import random as rand
 app = Flask(__name__)
 
 
@@ -14,8 +16,11 @@ def register():
 
 @app.route('/session')
 def sessions():
-    vokabel = "Bonjour"
-    return render_template("session.html", vokabel=vokabel) 
+    vocabs = getAllVocabs()
+    vocab_id = rand.randrange(len(vocabs)-1)
+    vokabel = vocabs[vocab_id][1] 
+    solution =  vocabs[vocab_id][2] 
+    return render_template("session.html", vokabel=vokabel, solution = solution) 
 
 
 @app.route('/session_solution')
@@ -49,17 +54,7 @@ def new():
 
 @app.route('/list')
 def list():
-   con = sql.connect("vokabeln.db")
-   con.row_factory = sql.Row
-   
-   cur = con.cursor()
-   cur.execute("select * from vokabeln")
-   
-   rows = cur.fetchall(); 
-   return render_template("list.html",rows = rows)
-
-
-
-
+    rows = getAllVocabs()
+    return render_template("list.html",rows = rows)
 if __name__ == "__main__":
     app.run()
