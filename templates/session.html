@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Study-session</h1>
+
+    <a href="/new"><button >+</button></a>
+
+    <a onclick="change()" >
+        <div style="border-style: solid; width:30%" >
+            <input  type="button"  id="test" value="{{vokabel}}">
+        </div>
+    </a>
+    <a href="/session"><button >Next</button></a>
+
+</body>
+
+
+<script>
+    function change()
+{
+    var elem = document.getElementById("test");
+    if (elem.value=="{{solution}}") elem.value = "{{vokabel}}";
+    else elem.value = "{{solution}}";
+}
+</script>

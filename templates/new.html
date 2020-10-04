@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Make a new flash card</h1>
+    {{msg}}
+    <form action = "\new" method = "POST">
+        <h3>Flash Card</h3>
+        Front<br>
+        <textarea name = "front" ></textarea><br>
+        
+        Back (Solution)<br>
+        <textarea name = "back" ></textarea><br>
+        <input type = "submit" value = "submit" /><br>
+     </form>
+    <a href="/session"><button >Go Back to Flash Cards</button></a>
+    <a href="/list"><button >Show all Flash Cards</button></a>
+
+</body>
